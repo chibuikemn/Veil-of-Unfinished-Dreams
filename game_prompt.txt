@@ -1,0 +1,238 @@
+STORY CREATION INSTRUCTIONS
+Veil of Unfinished Dreams
+
+Use this as your authoring rulebook. If a scene violates a rule, rewrite it.
+
+1. Narrative Prompt (Core Story Engine)
+
+Instruction:
+The story must revolve around unfinished dreams made manifest.
+
+Two souls are trapped in a dream-realm formed from abandoned desires, regrets, and unfulfilled hopes. The world reshapes itself based on which dreams the players choose to pursue—or sacrifice.
+
+Key rule:
+
+Dreams are not goals — they are burdens
+
+Completion of one dream may erase another
+
+You are not telling a heroic story.
+You are asking: What is worth letting go?
+
+2. Player Dream Identity
+
+Instruction:
+Each player is bound to one core dream per run.
+
+For each player, define:
+
+The dream they cannot let go of
+
+What emotional need it represents
+
+What the world gains if it is fulfilled
+
+What the world loses if it is fulfilled
+
+Example structure (do NOT reveal fully to both players):
+
+Player A: Dream of Redemption → strengthens order, weakens hope
+
+Player B: Dream of Escape → strengthens freedom, destabilizes reality
+
+Rule:
+
+Dreams must be mutually incompatible in some way.
+
+3. Dream Realm World Rules
+
+Instruction:
+The world reacts emotionally, not logically.
+
+World behavior rules:
+
+Disagreement causes instability
+
+Silence causes decay
+
+Forced agreement causes violence
+
+Environmental reactions:
+
+Rooms distort
+
+Text glitches or fragments
+
+Time skips
+
+Narrator becomes unreliable
+
+The world is alive and judges the players.
+
+4. Agreement Mechanic (Signature Feature)
+
+Instruction:
+Certain choices require explicit agreement from both players.
+
+Design rule:
+
+If both players agree → the world calms
+
+If players disagree → the world retaliates
+
+If one player refuses to choose → the world makes a cruel choice for them
+
+Violent world reactions may include:
+
+Dream collapse
+
+Loss of abilities
+
+Forced flashbacks
+
+Permanent narrative scars (persist across scenes)
+
+Never let disagreement be neutral.
+
+5. Emotional Sacrifice Rule
+
+Instruction:
+At least once per run, one player must abandon their dream for the other to progress.
+
+How abandonment works:
+
+Player loses access to dream-specific dialogue
+
+Their narration becomes quieter or fragmented
+
+World begins favoring the other player
+
+Important:
+
+Abandonment should feel intentional, not accidental.
+
+This is where emotional impact lives.
+
+6. Replayability System (Dream Mutation)
+
+Instruction:
+No two runs present dreams the same way.
+
+Between runs:
+
+Change dream symbolism
+
+Alter which dream is “dominant”
+
+Swap which player has more narrative control early
+
+Examples:
+
+A dream appears as a cathedral in one run, a prison in another
+
+A dream that once required sacrifice may now demand protection
+
+Rule:
+
+Same theme, different meaning.
+
+7. Branching Structure (4 Endings)
+
+You must design four philosophical endings, not “good/bad.”
+
+Ending 1 — Shattered Veil
+
+Players refuse to sacrifice
+
+Dreams consume the world
+
+Both escape, but reality remains broken
+
+Theme: Self-preservation
+
+Ending 2 — Silent Dream
+
+One player abandons their dream completely
+
+Other escapes alone
+
+Abandoned player fades into the Veil
+
+Theme: Love through loss
+
+Ending 3 — Bound in Sleep
+
+Players partially sacrifice
+
+Both remain trapped, but the world stabilizes
+
+Dreams soften into coexistence
+
+Theme: Acceptance
+
+Ending 4 — Waking Beyond
+
+Players fully align and choose a dreamless future
+
+Veil dissolves
+
+Neither dream is fulfilled — but both awaken
+
+Theme: Transcendence
+
+Rule:
+
+The “best” ending requires the most communication, not the right choices.
+
+8. Scene Writing Instructions
+
+When writing any scene:
+
+Use second-person, present tense
+
+Keep descriptions fragmented and sensory
+
+Never explain the dream’s meaning directly
+
+Let consequences answer questions
+
+Example tone:
+
+The ground remembers footsteps that were never taken.
+
+9. Fail-State Philosophy
+
+Instruction:
+Failure should feel like emotional consequence, not game over.
+
+Allowed failures:
+
+Lost memories
+
+Altered narration
+
+World hostility
+
+Ending paths closing permanently
+
+Disallowed failures:
+
+Instant death
+
+Hard resets
+
+Punishment without narrative meaning
+
+10. Final Design Check
+
+Before finalizing a scene, confirm:
+
+Does this force communication?
+
+Does this risk emotional loss?
+
+Does disagreement matter?
+
+Does sacrifice feel heavy?
+
+If any answer is “no,” revise.
