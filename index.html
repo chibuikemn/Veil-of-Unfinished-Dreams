@@ -3,20 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Veil of Unfinished Dreams</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --text-color: #d8a5ff;
+      --border-color: #8a2be2;
+      --bg-color: rgba(10, 14, 39, 0.8);
+      --font-family: 'Georgia', serif;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: var(--font-family);
     }
     body {
       font-family: 'Georgia', serif;
       background: linear-gradient(135deg, #0a0e27 0%, #1a0033 50%, #0d1b2a 100%);
-      color: #c9a0dc;
+      color: var(--text-color);
       min-height: 100vh;
       padding: 20px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     body::before {
       content: '';
@@ -33,21 +44,27 @@
     h1 {
       text-align: center;
       margin-bottom: 20px;
-      color: #d8a5ff;
+      color: var(--text-color);
       text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
       font-size: 2.5em;
       letter-spacing: 2px;
+      position: relative;
+      z-index: 10;
     }
     #output {
-      background: rgba(10, 14, 39, 0.8);
-      border: 2px solid #8a2be2;
+      background: var(--bg-color);
+      border: 2px solid var(--border-color);
       border-radius: 8px;
       padding: 20px;
-      height: 400px;
+      flex: 1;
       overflow-y: auto;
       margin-bottom: 15px;
       font-family: 'Courier New', monospace;
       box-shadow: 0 0 30px rgba(138, 43, 226, 0.3), inset 0 0 20px rgba(138, 43, 226, 0.1);
+      color: var(--text-color);
+      position: relative;
+      z-index: 10;
+      min-height: 200px;
     }
     #output::-webkit-scrollbar {
       width: 8px;
@@ -56,7 +73,7 @@
       background: rgba(138, 43, 226, 0.1);
     }
     #output::-webkit-scrollbar-thumb {
-      background: #8a2be2;
+      background: var(--border-color);
       border-radius: 4px;
     }
     #output div {
@@ -67,25 +84,47 @@
       width: 100%;
       padding: 12px;
       background: rgba(10, 14, 39, 0.9);
-      color: #d8a5ff;
-      border: 2px solid #8a2be2;
+      color: var(--text-color);
+      border: 2px solid var(--border-color);
       border-radius: 8px;
       font-family: 'Courier New', monospace;
       font-size: 1em;
       transition: all 0.3s ease;
       box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+      position: relative;
+      z-index: 10;
     }
     #input:focus {
       outline: none;
       box-shadow: 0 0 30px rgba(138, 43, 226, 0.6), inset 0 0 10px rgba(138, 43, 226, 0.2);
-      border-color: #d8a5ff;
+      border-color: var(--text-color);
     }
     #input::placeholder {
-      color: #8a2be2;
+      color: var(--border-color);
+    }
+    #vines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #vines.show {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
+  <svg id="vines" viewBox="0 0 1200 800" preserveAspectRatio="none">
+    <path d="M 0 0 Q 50 100 30 200 T 60 400" stroke="#2d5016" stroke-width="3" fill="none" opacity="0.6"/>
+    <path d="M 1200 0 Q 1150 120 1170 250 T 1140 450" stroke="#2d5016" stroke-width="3" fill="none" opacity="0.6"/>
+    <path d="M 100 0 Q 120 80 90 150 T 110 350" stroke="#3d6b1f" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M 1100 0 Q 1080 90 1110 180 T 1090 380" stroke="#3d6b1f" stroke-width="2" fill="none" opacity="0.5"/>
+  </svg>
   <h1>✦ Veil of Unfinished Dreams ✦</h1>
   <div id="output"></div>
   <input id="input" type="text" placeholder="Enter your command...">
