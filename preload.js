@@ -1,1 +1,6 @@
-//preload bride (we'll use later for LLM communication)
+const { contextBridge, ipcRenderer } = require('electron');
+
+contextBridge.exposeInMainWorld('game', {
+  sendCommand: (command) => ipcRenderer.send('game-command', command),
+  onOutput: (callback) => ipcRenderer.on('game-output', (event, data) => callback(data))
+});
