@@ -1,0 +1,5 @@
+*.class
+*.jar
+*.bat
+.DS_Store
+node_modules
