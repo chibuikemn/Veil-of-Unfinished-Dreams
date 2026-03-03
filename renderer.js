@@ -5,24 +5,25 @@ let gameState = 'welcome';
 let playerGender = '';
 let playerName = '';
 
-function addOutput(text, centered = false) {
+function addOutput(text, centered = false, callback = null) {
   const line = document.createElement('div');
   if (centered) {
     line.style.textAlign = 'center';
     line.style.fontWeight = 'bold';
   }
   outputDiv.appendChild(line);
-  typeText(line, text);
+  typeText(line, text, 30, callback);
 }
 
-function typeText(element, text, speed = 30) {
+function typeText(element, text, speed = 30, callback = null) {
   let index = 0;
   function type() {
     if (index < text.length) {
       element.textContent += text.charAt(index);
       index++;
-      outputDiv.scrollTop = outputDiv.scrollHeight;
       setTimeout(type, speed);
+    } else if (callback) {
+      callback();
     }
   }
   type();
@@ -48,8 +49,12 @@ function handleInput(input) {
 
   if (gameState === 'name_select') {
     playerName = input;
-    gameState = 'game';
     loadCharacterIntro();
+    return;
+  }
+
+  if (gameState === 'waiting_for_opening') {
+    loadOpeningScene();
     return;
   }
 
@@ -75,12 +80,44 @@ function loadCharacterIntro() {
     .then(response => response.text())
     .then(text => {
       const intro = text.replace(/<name>/g, playerName);
-      addOutput(intro);
-      addOutput('Type "help" for commands');
+      addOutput(intro, false, () => {
+        addOutput('\n--- Press Enter to continue ---');
+        gameState = 'waiting_for_opening';
+      });
     })
     .catch(error => {
-      addOutput('Welcome, ' + playerName + '!');
-      addOutput('Type "help" for commands');
+      addOutput('Welcome, ' + playerName + '!', false, () => {
+        addOutput('\n--- Press Enter to continue ---');
+        gameState = 'waiting_for_opening';
+      });
+    });
+}
+
+function loadOpeningScene() {
+  const path = 'player introduction/Veil_of_Unfinished_Dreams_Opening.txt';
+  
+  fetch(path)
+    .then(response => response.text())
+    .then(text => {
+      const lines = text.split('\n').filter(line => line.trim());
+      let lineIndex = 0;
+      
+      function displayNextLine() {
+        if (lineIndex < lines.length) {
+          addOutput(lines[lineIndex]);
+          lineIndex++;
+          setTimeout(displayNextLine, 1500);
+        } else {
+          gameState = 'game';
+          addOutput('\nType "help" for commands');
+        }
+      }
+      
+      displayNextLine();
+    })
+    .catch(error => {
+      addOutput('Error loading opening scene.');
+      gameState = 'game';
     });
 }
 
