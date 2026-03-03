@@ -1,12 +1,31 @@
 const outputDiv = document.getElementById('output');
 const inputField = document.getElementById('input');
 let running = true;
+let gameState = 'welcome';
+let playerGender = '';
+let playerName = '';
 
-function addOutput(text) {
+function addOutput(text, centered = false) {
   const line = document.createElement('div');
-  line.textContent = text;
+  if (centered) {
+    line.style.textAlign = 'center';
+    line.style.fontWeight = 'bold';
+  }
   outputDiv.appendChild(line);
-  outputDiv.scrollTop = outputDiv.scrollHeight;
+  typeText(line, text);
+}
+
+function typeText(element, text, speed = 30) {
+  let index = 0;
+  function type() {
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+      outputDiv.scrollTop = outputDiv.scrollHeight;
+      setTimeout(type, speed);
+    }
+  }
+  type();
 }
 
 function handleInput(input) {
@@ -15,6 +34,24 @@ function handleInput(input) {
   }
 
   addOutput('> ' + input);
+
+  if (gameState === 'gender_select') {
+    if (input.toLowerCase() === 'male' || input.toLowerCase() === 'female') {
+      playerGender = input.toLowerCase();
+      gameState = 'name_select';
+      addOutput('Enter your character name:');
+    } else {
+      addOutput('Please type "male" or "female"');
+    }
+    return;
+  }
+
+  if (gameState === 'name_select') {
+    playerName = input;
+    gameState = 'game';
+    loadCharacterIntro();
+    return;
+  }
 
   switch (input.toLowerCase()) {
     case 'quit':
@@ -28,6 +65,23 @@ function handleInput(input) {
     default:
       addOutput('You said: ' + input);
   }
+}
+
+function loadCharacterIntro() {
+  const filename = playerGender === 'male' ? 'Male_Player1_Introduction.txt' : 'Female_Player1_Introduction.txt';
+  const path = 'player introduction/' + filename;
+  
+  fetch(path)
+    .then(response => response.text())
+    .then(text => {
+      const intro = text.replace(/<name>/g, playerName);
+      addOutput(intro);
+      addOutput('Type "help" for commands');
+    })
+    .catch(error => {
+      addOutput('Welcome, ' + playerName + '!');
+      addOutput('Type "help" for commands');
+    });
 }
 
 function setTheme(theme) {
@@ -78,5 +132,6 @@ inputField.addEventListener('keydown', (e) => {
 
 window.game.onThemeChange((theme) => setTheme(theme));
 
-addOutput('Welcome to Veil of Unfinished Dreams');
-addOutput('Type "help" for commands');
+addOutput('Welcome to Veil of Unfinished Dreams', true);
+addOutput('Choose your gender (type "male" or "female"):');
+gameState = 'gender_select';
